@@ -2,10 +2,24 @@
 
 \usepackage[sfdefault, light]{roboto}
 \usepackage[T1]{fontenc}
-\usepackage{geometry}
+\usepackage{geometry, graphicx, calc}
+\usepackage[hidelinks=true]{hyperref}
+
 \geometry{left=1.4cm, top=1.5cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
 \fontfamily{roboto}\selectfont
+
+% new command inlinegraphics to include small icons inline.
+\newlength\myheight
+\newlength\mydepth
+\settototalheight\myheight{Xygp}
+\settodepth\mydepth{Xygp}
+\setlength\fboxsep{0pt}
+\newcommand*\inlinegraphics[1]{%
+	\settototalheight\myheight{Xygp}%
+	\settodepth\mydepth{Xygp}%
+	\raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}%
+}
 
 \begin{document}
 	\centering{\Huge \textbf{Qin Yin}}
@@ -14,5 +28,8 @@
 	\centering{Mathematics \& Business - 5th Year Double Degree}
 
 	\vspace{-5pt}
-	{\small phone | email | github | linkedin}
+	{\small \includegraphics[scale=0.0175]{icons/phone.png} 519 - 729 - 8745 \hspace{2pt} | \hspace{2pt}
+		\href{mailto:q.yin@live.com}{\includegraphics[scale=0.0065]{icons/email.png} Q.Yin@live.com} \hspace{2pt} | \hspace{2pt} 
+		\href{https://github.com/qin-yin}{\includegraphics[scale=0.03]{icons/github.png} \hspace{0pt} qin-yin} \hspace{2pt} | \hspace{2pt} 
+		\href{https://linkedin.com/in/qinyin}{\includegraphics[scale=0.055]{icons/linkedin.png} \hspace{1pt} qinyin}
 \end{document}
